@@ -268,7 +268,7 @@ def schema_for_column(column):  # pylint: disable=too-many-branches
         result.type = ['null', 'number']
 
         if data_type == 'decimal':
-            result.multipleOf = 10 ** (0 - column.numeric_scale)
+            result.multipleOf = 10 ** (0 - column.numeric_scale - 1)
 
     elif data_type in JSON_TYPES:
         result.type = ['null', 'string', 'object']
